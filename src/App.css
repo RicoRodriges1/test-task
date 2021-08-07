@@ -1,38 +1,31 @@
-.App {
-  text-align: center;
+.app {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login, .account {
+    margin: 150px auto;
+    width: 300px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login input{
+    display: block;
+    margin: 20px auto;
 }
-
-.App-link {
-  color: #61dafb;
+.noacc {
+    margin: 0 auto;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.setting {
+    display: flex;
+}
+.setting input {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.name {
+    padding: 10px 0;
 }
