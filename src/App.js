@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-//localStorage.clear();
+localStorage.clear();
 const admin = { email: 'crackeraki@gmail.com', password: 'crackeraki@gmail.com', name: 'Den', bio: 'denbio', phone: 'denphone', avatar: 'avatar', id: Math.random() };
 const user = { email: 'user', password: 'user', name: 'user', bio: 'bio', phone: 'userphone', avatar: 'avatar', id: Math.random() };
 localStorage.setItem('crackeraki@gmail.com', JSON.stringify(admin));
@@ -60,9 +60,11 @@ export default class App extends React.Component {
     e.preventDefault();
     let keys = Object.keys(localStorage);
     for (let key of keys) {
+      console.log(JSON.parse(localStorage.getItem(key)))
       this.accounts.push(JSON.parse(localStorage.getItem(key)));
     }
     let acc = {};
+    console.log(this.accounts)
 
     if (this.email === 'crackeraki@gmail.com' && this.password === 'crackeraki@gmail.com') {
       this.setState({
@@ -76,7 +78,8 @@ export default class App extends React.Component {
       });
     }
     else {
-      if (this.accounts.find((account) => { acc = account; return (account.email === this.email && account.password === this.password) })) {
+      if (this.accounts.find(account => this.email === account.email && this.password === account.password )) {
+        let acc = this.accounts.find(account => this.email === account.email && this.password === account.password )
         this.setState({
           email: acc.email,
           password: acc.password,
@@ -101,8 +104,8 @@ export default class App extends React.Component {
           render: 'new account'
         })
         let newacc = { email: this.state.email, password: this.state.password, name: this.state.name, bio: this.state.bio, phone: this.state.phone, avatar: this.state.avatar, id: Math.random() }
-        localStorage.setItem(this.email, newacc);
-        console.log('new user')
+        localStorage.setItem(this.email, JSON.stringify(newacc));
+        console.log('new user', localStorage.getItem(this.email))
       }
     }
   }
